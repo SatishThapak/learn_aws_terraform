@@ -12,19 +12,19 @@ variable "environment" {
 }
 variable "vpc_cidr" {
   type        = string
-  description = "Public Subnet CIDR values"
+  description = "Public Subnet "
 }
 variable "vpc_name" {
   type        = string
-  description = "DevOps Project 1 VPC"
+  description = "VPC"
 }
 variable "public_subnet" {
   type        = list(string)
-  description = "Public Subnet CIDR values"
+  description = "Public Subnet"
 }
 variable "private_subnet" {
   type        = list(string)
-  description = "Private Subnet CIDR values"
+  description = "Private Subnet"
 }
 variable "availability_zone" {
   type        = list(string)
@@ -33,12 +33,12 @@ variable "availability_zone" {
 
 variable "public_key" {
   type        = string
-  description = "DevOps Project 1 Public key for EC2 instance"
+  description = "Public key for EC2 instance"
 }
 
 variable "ami_id" {
   type        = string
-  description = "DevOps Project 1 AMI Id for EC2 instance"
+  description = "AMI Id for EC2 instance"
 }
 
 variable "user_data_install_apache" {
