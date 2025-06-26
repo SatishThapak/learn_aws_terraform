@@ -1,21 +1,22 @@
 module "networking" {
-  source               = "./networking"
+  source               = "../modules/networking"
   vpc_cidr             = var.vpc_cidr
   vpc_name             = var.vpc_name
-  public_subnet   = var.public_subnet
-  availability_zone = var.availability_zone
-  private_subnet  = var.private_subnet
+  public_subnet        = var.public_subnet
+  availability_zone    = var.availability_zone
+  private_subnet       = var.private_subnet
 }
 
+
 module "security-group" {
-  source                     = "./security-groups"
+  source                     = "../modules/security-groups"
   ec2_sg_name                = "dev-project-ec2-sg"
   vpc_id                     = module.networking.dev_project_vpc_id
   public_subnet   = tolist(module.networking.dev_project_public_subnets)
 }
 
 module "EC2_instance" {
-  source                   = "./EC2_instance"
+  source                   = "../modules/EC2_instance"
   ami_id                   = var.ami_id
   instance_type            = "t2.micro"
   tag_name                 = "Ubuntu Linux EC2"
